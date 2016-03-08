@@ -1,8 +1,8 @@
 function startGame(){
 	document.turn = "X"
-	setMessage(document.turn + " gets to start.");
+	setStatus(document.turn + " gets to start.");
 	}
-function setMessage(msg){
+function setStatus(msg){
 	document.getElementById("status").innerHTML = msg;
 	}
 
@@ -14,10 +14,10 @@ function nextMove(tile){
 function switchTurn(){
 	if(document.turn === "X"){
 	document.turn = "O";
-	setMessage("It's " + document.turn + " turn");
+	setStatus("It's " + document.turn + " turn");
 	} else {
 	document.turn = "X";
-	setMessage("It's " + document.turn + " turn");
+	setStatus("It's " + document.turn + " turn");
 	}
 }
 
