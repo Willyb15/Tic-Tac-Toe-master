@@ -1,5 +1,9 @@
 function startGame(){
-	document.turn = "X"
+	if(Math.random() < 0.5){
+	 	document.turn = "O";
+	} else{
+		document.turn = "X";
+	}
 	setStatus(document.turn + " gets to start.");
 }
 
@@ -18,11 +22,11 @@ function nextMove(tile){
 
 function switchTurn(){
 	if(document.turn === "X"){
-	document.turn = "O";
-	setStatus("It's " + document.turn + " turn");
+		document.turn = "O";
+		setStatus("It's " + document.turn + " turn");
 	} else {
-	document.turn = "X";
-	setStatus("It's " + document.turn + " turn");
+		document.turn = "X";
+		setStatus("It's " + document.turn + " turn");
 	}
 }
 
