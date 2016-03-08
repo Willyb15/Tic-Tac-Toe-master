@@ -30,7 +30,9 @@ function switchTurn(){
 	}
 }
 
-
+function clearGame(){
+	 location.reload();
+}
 
 
 

@@ -32,11 +32,16 @@ body{
 	margin-top: 15px;
 }
 
+button[type="button"] {
+	margin-top: 10px;
+	background-color: #b3d9ff;
+	border: 5px solid black;
+}
+
 #game-area{
 	width: 600px;
 	margin-top: 50px;
 	margin: auto;
-
 }
 
 #top{
