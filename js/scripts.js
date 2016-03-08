@@ -1,14 +1,19 @@
 function startGame(){
 	document.turn = "X"
 	setStatus(document.turn + " gets to start.");
-	}
+}
+
 function setStatus(msg){
 	document.getElementById("status").innerHTML = msg;
-	}
+}
 
 function nextMove(tile){
-	tile.innerHTML = document.turn
-	switchTurn();
+	if(tile.innerHTML === ""){
+		tile.innerHTML = document.turn
+		switchTurn();
+	} else{
+		setStatus("That sqaure is taken!!");
+	}
 }
 
 function switchTurn(){
