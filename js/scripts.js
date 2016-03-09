@@ -51,7 +51,9 @@ function clickMe(element){
 		return;
 	} else {
 		setTimeout(computersTurn, 2000);
+		setTimeout(clickOn,2000);
 	}
+	gameOver();
 }
 
 function checkWin()	{
