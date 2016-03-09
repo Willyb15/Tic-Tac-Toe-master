@@ -19,12 +19,18 @@ for(var i = 0; i < square.length; i++){
 }
 */
 
-var playerTurn = "X";
+
 var playerScoreX = 0;
 var playerScoreO = 0;
 var playerOneMarkings = [];
 var playerTwoMarkings = [];
+var computer;
+var playerTurn = "X";
 
+function twoPlayers(){
+	reloadPage();
+	computer=false;
+}
 
 function clickMe(element){
 	document.getElementById("errors").style.display = "none";
@@ -47,10 +53,11 @@ function clickMe(element){
 	element.classList.add('p1');
 	playerOneMarkings.push(element.id);
 
-	if (checkWin()) {
+	if (computer===false){
+		checkWin();
 		return;
-	} else {
-		setTimeout(computersTurn, 2000);
+	}else{
+		setTimeout(computersTurn, 1000);
 		setTimeout(clickOn,2000);
 	}
 	gameOver();

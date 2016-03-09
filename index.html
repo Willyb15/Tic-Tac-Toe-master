@@ -7,8 +7,12 @@
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
 </head>
-<body>
+<body onload="gameOver();">
 	<div id="game-wrapper">
+		<div id="player-selecter">
+			<button type="button" onclick="reloadPage();">1 Player!</button>
+			<button type="button" onclick="twoPlayers();">2 Players!</button>
+		</div>
 		<div id="reset" onclick="reloadPage();">Reset the board</div>
 		<div id="scoreboard">
 			<div id="scoreboard-header">Scoreboard</div>
@@ -28,7 +32,6 @@
 				<div id="status-turn">X</div>
 			</div>	
 		</div>
-		
 		<div id="game-area">
 			<div id="top">
 				<div class="a one">
