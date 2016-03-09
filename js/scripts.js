@@ -26,19 +26,19 @@ var playerOneMarkings = [];
 var playerTwoMarkings = [];
 
 
-function clickMe(element)	{
+function clickMe(element){
 	document.getElementById("errors").style.display = "none";
 	if(element.innerHTML == "X" || element.innerHTML == "O")	{
 		document.getElementById("errors").style.display = "block";
 		return;
-	}	else{
+	}else{
 		element.innerHTML = playerTurn;
 	}
 
 	if (playerTurn === "X") {
 		playerTurn = "O";
 		document.getElementById("status-turn").innerHTML = playerTurn;
-	}	else{
+	}else{
 		playerTurn = "X";
 		document.getElementById("status-turn").innerHTML = playerTurn;
 	}       
@@ -66,8 +66,7 @@ function checkWin()	{
 			document.getElementById("x-score").innerHTML = playerScoreX;
 			gameOver();
 			return true;
-		}
-		else if((document.getElementById(winners[i][0]).innerHTML) == "O" && (document.getElementById(winners[i][1]).innerHTML == "O") && (document.getElementById(winners[i][2]).innerHTML == "O"))	{
+		}else if((document.getElementById(winners[i][0]).innerHTML) == "O" && (document.getElementById(winners[i][1]).innerHTML == "O") && (document.getElementById(winners[i][2]).innerHTML == "O"))	{
 			document.getElementById('errors').style.display	= "block";
 			document.getElementById('errors').innerHTML	= "Player O is the winner!";
 			document.getElementById(winners[i][0]).classList.add("winner");
@@ -97,7 +96,6 @@ function reloadPage()	{
 	for (var i = 0; i < tiles.length; i++) {
 		tiles[i].classList.add('empty');
 	}
-
 	playerTurn ="X";
 	clickOn();
 }
@@ -110,7 +108,6 @@ function gameOver()	{
 }
 
 function clickOn()	{
-	console.log("trying to turn clickon");
 	var tileElements = document.getElementsByClassName('tile');
 	for(var i = 0; i < tileElements.length; i++)	{
 			tileElements[i].style.pointerEvents = "auto";
@@ -118,8 +115,9 @@ function clickOn()	{
 }
 
 function computersTurn(){
-	//set delay
-
+	//set delay with timeout function
+	//disable other player's click function
+	gameOver();
 	//It has to be O's turn. Put an O in.
 	// Get a random, empty square.
 	var arrayOfEmptySquares = document.getElementsByClassName('empty');
