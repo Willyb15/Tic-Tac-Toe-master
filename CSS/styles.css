@@ -104,6 +104,17 @@ button[type="button"] {
 	font-size: 150px;
 }
 
+#status.red{
+	background-color: red;
+}
+
+#status.green{
+	background-color: green;
+}
+
+#status.white{
+	background-color: #fff;
+}
 
 
 
