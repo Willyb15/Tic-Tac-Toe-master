@@ -22,6 +22,8 @@ for(var i = 0; i < square.length; i++){
 var playerTurn = "X";
 var playerScoreX = 0;
 var playerScoreO = 0;
+var playerOneMarkings = [];
+var playerTwoMarkings = [];
 
 
 function clickMe(element)	{
@@ -29,21 +31,27 @@ function clickMe(element)	{
 	if(element.innerHTML == "X" || element.innerHTML == "O")	{
 		document.getElementById("errors").style.display = "block";
 		return;
-	}
-	else	{
+	}	else{
 		element.innerHTML = playerTurn;
 	}
 
 	if (playerTurn === "X") {
 		playerTurn = "O";
 		document.getElementById("status-turn").innerHTML = playerTurn;
-	}
-	else	{
+	}	else{
 		playerTurn = "X";
 		document.getElementById("status-turn").innerHTML = playerTurn;
-	}
+	}       
 
-	checkWin();
+	element.classList.remove('empty');
+	element.classList.add('p1');
+	playerOneMarkings.push(element.id);
+
+	if (checkWin()) {
+		return;
+	} else {
+		setTimeout(computersTurn, 2000);
+	}
 }
 
 function checkWin()	{
@@ -57,6 +65,7 @@ function checkWin()	{
 			playerScoreX++;
 			document.getElementById("x-score").innerHTML = playerScoreX;
 			gameOver();
+			return true;
 		}
 		else if((document.getElementById(winners[i][0]).innerHTML) == "O" && (document.getElementById(winners[i][1]).innerHTML == "O") && (document.getElementById(winners[i][2]).innerHTML == "O"))	{
 			document.getElementById('errors').style.display	= "block";
@@ -67,6 +76,7 @@ function checkWin()	{
 			playerScoreO++;
 			document.getElementById("o-score").innerHTML = playerScoreO;
 			gameOver();
+			return true;
 		}
 	}
 }
@@ -79,6 +89,15 @@ function reloadPage()	{
 		}
 	}	
 	document.getElementById("errors").style.display = "none";
+	var tiles = document.getElementsByClassName("tile");
+	var arrayTiles = tiles.length;
+	var element = tiles[arrayTiles];
+	// element.classList.add("empty");
+	console.log(tiles);
+	for (var i = 0; i < tiles.length; i++) {
+		tiles[i].classList.add('empty');
+	}
+
 	playerTurn ="X";
 	clickOn();
 }
@@ -87,7 +106,6 @@ function gameOver()	{
 	var tileElements = document.getElementsByClassName('tile');
 	for(var i = 0; i < tileElements.length; i++)	{
 		tileElements[i].style.pointerEvents = "none";
-		
 	}
 }
 
@@ -99,13 +117,23 @@ function clickOn()	{
 	}
 }
 
+function computersTurn(){
+	//set delay
 
-
-
-
-
-
-
+	//It has to be O's turn. Put an O in.
+	// Get a random, empty square.
+	var arrayOfEmptySquares = document.getElementsByClassName('empty');
+	var randomEmptySquareIndex = Math.floor(Math.random() * arrayOfEmptySquares.length);
+	var element = arrayOfEmptySquares[randomEmptySquareIndex];
+	element.innerHTML = 'O';
+	playerTurn = "X";
+	document.getElementById("status-turn").innerHTML = "X";
+	// document.getElementById("status").className = '';
+	element.classList.remove('empty');
+	element.classList.add('O');
+	playerTwoMarkings.push(element.id);	
+	checkWin();
+}
 
 
 
