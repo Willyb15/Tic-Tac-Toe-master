@@ -15,6 +15,15 @@
 			Player 1's Turn
 		</div>
 
+		<div class="num-players">
+			<button id="one-player" onclick="onePlayer()">1 Player</button>
+			<button id="two-players" onclick="twoPlayers()">2 Players</button>
+		</div>
+
+		<div id="play-again">
+			<button id="play-again-button" onclick="resetGame()">Would you like to play again?</button>
+		</div>
+
 		<div id="board-wrapper">
 			<div id="row1">
 				<button class="left square empty" id="a1" onclick="addSymbol(this);"></button>
@@ -35,7 +44,7 @@
 
 
 	</div>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
 
 </body>

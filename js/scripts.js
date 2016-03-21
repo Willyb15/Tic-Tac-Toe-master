@@ -1,10 +1,3 @@
-//Give the user the option of having 1 player with the computer, or 2 players without the computer
-//Add a reset button
-//SUPER BONUS
-//Give the user the option of an Nth size grid.
-//ULTRA BONUS
-// Make the computer try and win.
-
 var winners = 
 [
 	['a1','a2','a3'],
@@ -19,7 +12,33 @@ var winners =
 var playerOneMarkings = [];
 var playerTwoMarkings = [];
 var whosTurn = 1;
-var gameHeader = document.getElementById('game-header');
+var gameHeader = document.getElementById('game-header')
+var computer;
+var playerMode;
+var winsPlayerOne;
+var winsPlayerTwo;
+
+function onePlayer(){
+	computer = true;
+	playerMode = 1;
+	document.getElementById('game-header').innerHTML = 'Your turn!';
+
+	var buttons = document.getElementsByTagName("button");
+	for(i=0; i<buttons.length; i++){
+		buttons[i].disabled = false;
+	}
+}
+
+function twoPlayers(){
+	computer = false;
+	playerMode = 2;
+	document.getElementById('game-header').innerHTML = 'Player 1\'s turn!';
+	var buttons = document.getElementsByTagName("button");
+	for(i=0; i<buttons.length; i++){
+		buttons[i].disabled = false;
+	}
+}
+
 
 function addSymbol(element){
 	if(element.innerHTML == ''){
@@ -35,19 +54,22 @@ function addSymbol(element){
 			element.classList.add('p1');
 			playerOneMarkings.push(element.id);
 			checkWin();
-
 			//Only run computersTurn, if the user chose 1 player
-			//Otherwise run computers turn.
-			computersTurn();
-		// }else{
-		// 	//It has to be O's turn. Put an O in.
-		// 	element.innerHTML = 'O';
-		// 	whosTurn = 1;
-		// 	gameHeader.innerHTML = "It is Player 1's turn";
-		// 	gameHeader.className = 'player-one';
-		// 	element.classList.remove('empty');
-		// 	element.classList.add('p2');
-		// 	playerTwoMarkings.push(element.id);
+			if(computer == true){
+				// setTimeout(computersTurn, 3000);
+				computersTurn();
+			}
+		}else{
+		//Otherwise run players turn.
+			//It has to be O's turn. Put an O in.
+			element.innerHTML = 'O';
+			whosTurn = 1;
+			gameHeader.innerHTML = "It is Player 1's turn";
+			gameHeader.className = 'player-one';
+			element.classList.remove('empty');
+			element.classList.add('p2');
+			playerTwoMarkings.push(element.id);
+			checkWin();
 		}
 	}else{
 		gameHeader.innerHTML = "This box is taken";
@@ -115,18 +137,36 @@ function gameOver(combo, playerWhoWon){
 	var buttons = document.getElementsByTagName("button");
 	for(i=0; i<buttons.length; i++){
 		buttons[i].disabled = true;
-
-		buttons[i].style.pointerEvents = 'none';
 	}
 	//Give the user a button to click on, to reset the board. When they click on it
-	//Call resetGame()
+
+	// Update wins counter for the winning playerOneMarkings
+	if(playerWhoWon==1){
+		winsPlayerOne++;
+	}else{
+		winsPlayerTwo++;
+	}
+	document.getElementById('play-again-button').disabled = false;
+	document.getElementById('play-again').style.display = 'block';
 }
 
 function resetGame(){
 	// Clear Player Arrays
+	playerOneMarkings = [];
+	playerTwoMarkings = [];
+	
+	var buttons = document.getElementsByClassName("square");
 	// Clear innerHTML of squares
-	// Update wins counter for the winning playerOneMarkings
-	// Undisable the buttons
+	for(i=0; i<buttons.length; i++){
+		buttons[i].innerHTML = '' ;
+		buttons[i].classList.add('empty');
+		buttons[i].classList.remove('winner');
+	}
+	//Enable the one and two player buttons
+	document.getElementById('one-player').disabled = false;
+	document.getElementById('two-players').disabled = false;	
+	//hide the play again button
+	document.getElementById('play-again').style.display = 'none';
 }
 
 var squareWidth = document.getElementById('a1').clientWidth;
@@ -134,4 +174,3 @@ var squares = document.getElementsByClassName('square');
 for(i=0; i<squares.length; i++){
 	squares[i].style.height = squareWidth + 'px';
 }
-
