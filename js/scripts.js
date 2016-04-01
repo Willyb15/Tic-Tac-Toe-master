@@ -120,6 +120,7 @@ function checkWin(){
 		if(rowCount === 3){
 			//Player 1 won!!!!
 			gameOver(thisWinCombination, 1);
+			
 		}else if(playerTwoRowCount === 3){
 			gameOver(thisWinCombination, 2);			
 		}
