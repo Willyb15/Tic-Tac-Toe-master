@@ -5,8 +5,10 @@
 
 	<link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
 </head>
+<<<<<<< HEAD
 <body>
 
 	<div id="game-wrapper">
@@ -45,6 +47,77 @@
 
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+=======
+<body onload="gameOver();">
+	<div id="game-wrapper">
+		<div id="player-selecter">
+			<button type="button" onclick="reloadPage();">1 Player!</button>
+			<button type="button" onclick="twoPlayers();">2 Players!</button>
+		</div>
+		<div id="reset" onclick="reloadPage();">Reset the board</div>
+		<div id="scoreboard">
+			<div id="scoreboard-header">Scoreboard</div>
+			<div id="player-x-score">
+				<div class="playerName">Player X:</div>
+				<div id="x-score"></div>
+			</div>
+			<div id="player-o-score">
+				<div class="playerName">Player O:</div>
+				<div id="o-score"></div>
+			</div>
+		</div>
+		<div id="header">
+			<div id="title">Tic Tac Toe</div>
+			<div id="status">
+				<div>Turn player:</div>
+				<div id="status-turn">X</div>
+			</div>	
+		</div>
+		<div id="game-area">
+			<div id="top">
+				<div class="a one">
+					<div id="a1" class="tile empty" onclick="clickMe(this);"> </div>
+				</div>
+				<div class="a two">
+					<div id="a2" class="tile empty" onclick="clickMe(this);"> </div>
+				</div>
+				<div class="a three">
+					<div id="a3" class="tile empty" onclick="clickMe(this);"> </div>
+				</div>
+			</div>
+			<div id="middle">
+				<div class="b one">
+					<div id="b1" class="tile empty" onclick="clickMe(this);"> </div>
+				</div>
+				<div class="b two">
+					<div id="b2" class="tile empty" onclick="clickMe(this);"> </div>
+				</div>
+				<div class="b three">
+					<div id="b3" class="tile empty" onclick="clickMe(this);"> </div>
+				</div>
+			</div>
+			<div id="bottom">
+				<div class="c one">
+					<div id="c1" class="tile empty" onclick="clickMe(this);"> </div>
+				</div>
+				<div class="c two">
+					<div id="c2" class="tile empty" onclick="clickMe(this);"> </div>
+				</div>
+				<div class="c three">
+					<div id="c3" class="tile empty" onclick="clickMe(this);"> </div>
+				</div>
+			</div>
+		</div>
+		<div id="errors">Square already chosen! Please pick another square.</div>
+	</div>
+
+
+
+
+
+
+
+>>>>>>> master
 	<script type="text/javascript" src="js/scripts.js"></script>
 
 </body>
