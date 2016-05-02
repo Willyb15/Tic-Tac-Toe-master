@@ -1,9 +1,5 @@
-body{
-	background: url("../img/background.png") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+#game-wrapper{
+	padding: 30px;
 }
 #reset{
 	border: 5px solid black;
@@ -48,6 +44,20 @@ body{
 	float: none;
 }
 
+<<<<<<< HEAD
+#board-wrapper{
+	background-color: black;
+	width: 75%;
+	max-width: 640px;
+	min-width: 360px;
+	margin: 0 auto;	
+	overflow: hidden;
+}
+
+#row1, #row2, #row3{
+    overflow: hidden;
+    margin-bottom: 5%;
+=======
 #header{
 	margin: auto;
 	text-align: center;
@@ -62,16 +72,10 @@ body{
 	width: 270px;
 	margin: auto;
 	padding: 5px;
+>>>>>>> master
 }
-
-#status{
-	border: 5px solid black;
-	background-color: #b3d9ff;
-	font-size: 30px;
-	width: 150px;
-	margin: auto;
-	padding: 5px;
-	margin-top: 15px;
+#row3{
+	margin-bottom: 0px;
 }
 #player-selecter{
 	border: 5px solid black;
@@ -98,63 +102,75 @@ body{
 	margin-top: 5px;
 }
 
-#game-area{
-	width: 600px;
-	margin-top: 50px;
-	margin: auto;
-
+.num-players{
+	margin: 20px auto;
+	width: 60%;
+	text-align: center;
 }
 
-#top{
-	height: 200px;
-	border-bottom: 5px solid black;
+#play-again{
+	display: none;
+	text-align: center;
 }
 
-#middle{
-	height: 200px;
-	border-bottom: 5px solid black;
-	border-top: 5px solid black;
+.num-players button, #play-again button{
+	width: 120px;
+	padding: 0px 5px;
+	background-color: #ddd;
+	font-size: 18px;
+	border-radius: 10px;
+	color: black;
 }
 
-#bottom{
-	height: 200px;
-	border-top: 5px solid black;
+#play-again button{
+	width: 200px;
 }
 
-.a{
-	width: 33%;
+
+.square{
+	display: inline-block;
+	width: 30%;
+	background: white;
+	margin-left: 5%;
+	padding: 30px 0;
+	font-size: 80px;
 	float: left;
-	height: 100%;
-	box-sizing: border-box;
+	border: none;
 }
 
-.b{
-	width: 33%;
-	float: left;
-	height: 100%;
-	box-sizing: border-box;
+.left{
+	margin-left: 0px;
+}	
+
+#game-header{
+	font-size: 30px;
+	font-weight: bold;
+	background-color: green;
+	color: white;
+	border-radius: 10px;
+	width: 60%;
+	text-align: center;
+	margin: 0 auto 25px;
 }
 
-.c{
-	width: 33%;
-	float: left;
-	height: 100%;
-	box-sizing: border-box;
+#game-header.red{
+	background-color: #ff0000;
 }
 
-.one{
-	border-right: 5px solid black;
+#game-header.player-one{
+	background-color: green;
 }
 
-.two{
-	border-right: 5px solid black;
-	border-left: 5px solid black;
+<<<<<<< HEAD
+#game-header.player-two{
+	background-color: #0000ff;
 }
 
-.three{
-	border-left: 5px solid black;
+.winner{
+	background: green;
 }
 
+=======
 .tile{
 	height: 150px;
 	width: 150px;
@@ -183,3 +199,4 @@ body{
 .winner{
 	background-color: #66ff66;
 }
+>>>>>>> master
